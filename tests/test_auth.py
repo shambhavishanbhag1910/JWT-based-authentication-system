@@ -35,6 +35,7 @@ def test_register_login_profile(client):
     assert response.status_code == 201
     assert response.json() == {"username": "alex", "full_name": "Alex"}
     saved = database.get_user("alex")
+    assert saved is not None
     assert saved["password_hash"] != "CorrectHorseBattery99!"
     assert saved["password_hash"].startswith("$argon2id$")
     result = login(client)

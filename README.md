@@ -34,7 +34,7 @@ Replace `REPLACE_ME` in `.env` with the printed secret.
 uvicorn main:app --reload
 ```
 
-Open http://127.0.0.1:8000/docs
+Open [the API documentation](http://127.0.0.1:8000/docs)
 
 ### 1. POST /register
 
