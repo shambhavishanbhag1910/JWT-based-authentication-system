@@ -1,10 +1,20 @@
 """Tiny SQLite repository. Learn these 3 functions before touching JWT."""
-
 import os
 import sqlite3
 from pathlib import Path
 
-DB_PATH = Path(os.getenv("JWT_DEMO_DB_PATH", Path(__file__).with_name("users.db")))
+from dotenv import load_dotenv
+
+# Load local settings before reading the database path.
+# Existing environment variables keep precedence.
+load_dotenv(Path(__file__).with_name(".env"))
+
+DB_PATH = Path(
+    os.getenv(
+        "JWT_DEMO_DB_PATH",
+        Path(__file__).with_name("users.db"),
+    )
+)
 
 
 def init_db():
